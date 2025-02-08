@@ -63,6 +63,7 @@ file(GLOB yojimbo_SRC
         "source/*.cpp"
 )
 add_library(yojimbo STATIC ${yojimbo_SRC})
+target_include_directories(yojimbo PUBLIC include)
 
 # CLIENT
 add_executable(client
