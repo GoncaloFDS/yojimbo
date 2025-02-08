@@ -62,8 +62,11 @@ file(GLOB yojimbo_SRC
         "include/*.h"
         "source/*.cpp"
 )
+
+add_library(serialze INTERFACE serialize/serialize.h)
 add_library(yojimbo STATIC ${yojimbo_SRC})
 target_include_directories(yojimbo PUBLIC include netcode reliable serialize sodium tlsf)
+target_link_libraries(yojimbo PUBLIC netcode reliable serialize sodium tlsf)
 
 # CLIENT
 add_executable(client
@@ -130,6 +133,5 @@ target_link_libraries(test
         reliable
 )
 
-target_link_libraries(yojimbo PRIVATE sodium tlsf netcode reliable)
 
 target_compile_definitions(test PRIVATE SERIALIZE_ENABLE_TESTS=1)
