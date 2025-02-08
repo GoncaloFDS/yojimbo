@@ -63,7 +63,7 @@ file(GLOB yojimbo_SRC
         "source/*.cpp"
 )
 add_library(yojimbo STATIC ${yojimbo_SRC})
-target_include_directories(yojimbo PUBLIC include)
+target_include_directories(yojimbo PUBLIC include netcode reliable serialize sodium tlsf)
 
 # CLIENT
 add_executable(client
